@@ -7,6 +7,13 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  title: string = 'Actunews';
+
+  posts = [
+    {'title': 'Titre 1'},
+    {'title': 'Titre 2'},
+    {'title': 'Titre 3'},
+    {'title': 'Titre 4'},
+  ]
 
 }
