@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-icon
+      (click)="dismissModal()"
+      slot="end" class="close" name="close-circle-outline"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ng-template [ngIf]="post">
+    <h1>{{ post.title }}</h1>
+    <p>par <span>{{ post.user.firstName }} {{ post.user.lastName }}</span></p>
+    <img alt="{{ post.title }}" src="{{ post.image }}"/>
+    <div [innerHTML]="post.content"></div>
+  </ng-template>
+</ion-content>

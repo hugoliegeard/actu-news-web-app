@@ -3,6 +3,7 @@ import {ModalController} from "@ionic/angular";
 import {PostComponent} from "../post/post.component";
 import {Post} from "../shared/models/post";
 import {PostService} from "../services/api/post.service";
+import {PostResponse} from "../shared/models/post.response";
 
 @Component({
   selector: 'app-tab1',
@@ -30,7 +31,7 @@ export class Tab1Page implements OnInit {
   ngOnInit(): void {
 
     // Récupération des articles à la une
-    this.postService.getPosts().subscribe(data => {
+    this.postService.getPosts().subscribe((data: PostResponse) => {
 
       // Vérification dans la console
       console.log( data );
@@ -42,7 +43,7 @@ export class Tab1Page implements OnInit {
     });
 
     // Récupération des articles "Politique"
-    this.postService.getPostsByCategory(1).subscribe(data => {
+    this.postService.getPostsByCategory(1).subscribe((data: PostResponse) => {
       // Affectation des articles de l'API
       this.politicPosts = data["hydra:member"];
       this.featuredPoliticPost = this.politicPosts.shift();
@@ -50,7 +51,7 @@ export class Tab1Page implements OnInit {
 
 
     // Récupération des articles "Economie"
-    this.postService.getPostsByCategory(2).subscribe(data => {
+    this.postService.getPostsByCategory(2).subscribe((data: PostResponse) => {
       // Affectation des articles de l'API
       this.ecoPosts = data["hydra:member"];
       this.featuredEcoPost = this.ecoPosts.shift();
